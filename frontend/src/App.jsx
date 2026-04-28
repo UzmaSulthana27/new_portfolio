@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
-import About from "./components/About.jsx";
-import Skills from "./components/Skills.jsx";
-import Projects from "./components/Projects.jsx";
-import Contact from "./components/Contact.jsx";
-import BackToTop from "./components/BackToTop.jsx";
-import { Separator } from "./components/ui/separator.jsx";
+import Navbar from "@/components/Navbar.jsx";
+import Hero from "@/components/Hero.jsx";
+import About from "@/components/About.jsx";
+import Skills from "@/components/Skills.jsx";
+import Projects from "@/components/Projects.jsx";
+import Contact from "@/components/Contact.jsx";
+import BackToTop from "@/components/BackToTop.jsx";
+import { Separator } from "@/components/ui/separator.jsx";
 import { motion, useScroll, useSpring } from "motion/react";
-import InteractiveGrid from "./components/InteractiveGrid.jsx";
+import InteractiveGrid from "@/components/InteractiveGrid.jsx";
 
 const CustomCursor = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
