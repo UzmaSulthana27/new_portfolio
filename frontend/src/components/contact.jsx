@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { Button } from "./ui/button.jsx";
-import { Card, CardContent } from "./ui/card.jsx";
+import { Button } from "@/components/ui/button.jsx";
+import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Github, Linkedin, Mail, MessageSquare, Send, CheckCircle2, AlertCircle, Signal, Wifi, Radio } from "lucide-react";
 
 export default function Contact() {
