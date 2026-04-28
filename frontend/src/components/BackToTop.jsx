@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronUp } from "lucide-react";
-import { Button } from "@/components/ui/button.jsx";
+import { Button } from "./ui/button.jsx";
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
