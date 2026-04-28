@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Card, CardContent } from "@/components/ui/card.jsx";
+import { Card, CardContent } from "./ui/card.jsx";
 import { GraduationCap, MapPin, Sparkles, User, Code2, Cpu, Database, Terminal, ShieldCheck } from "lucide-react";
 
 const InfoModule = ({ title, subtitle, detail, icon: Icon, delay = 0, accent = false }) => (

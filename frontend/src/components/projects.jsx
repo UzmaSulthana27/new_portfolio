@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { Github, ExternalLink, Sparkles, Terminal, Code2, Layers, Cpu, Box as BoxIcon, Database, Zap, Brain, Atom, Globe, FileCode, Layout, Server, Database as DatabaseIcon } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card.jsx";
-import { Button } from "@/components/ui/button.jsx";
+import { Card, CardContent } from "./ui/card.jsx";
+import { Button } from "./ui/button.jsx";
 
 const techIcons = {
   "Python": { icon: <Terminal className="w-3 h-3" />, color: "#3776AB" },
