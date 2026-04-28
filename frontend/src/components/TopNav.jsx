@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Button, buttonVariants } from "./ui/button.jsx";
-import { cn } from "../lib/utils.js";
+import { Button, buttonVariants } from "@/components/ui/button.jsx";
+import { cn } from "@/lib/utils.js";
 
 const navLinks = [
   { name: "Home", href: "#home" },

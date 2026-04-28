@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Button } from "./ui/button.jsx";
+import { Button } from "@/components/ui/button.jsx";
 import { ArrowRight, Code2, Cpu, Globe, MapPin, Terminal as TerminalIcon, Sparkles, User, Database, Cpu as ChipIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 
