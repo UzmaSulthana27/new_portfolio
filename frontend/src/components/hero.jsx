@@ -107,7 +107,7 @@ const StatusLog = () => {
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[110vh] flex items-center justify-center pt-20 overflow-hidden bg-[#02040a]">
+    <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#02040a]">
       {/* Background Energy Lines (SVG) */}
       <div className="absolute inset-0 pointer-events-none">
         <svg className="w-full h-full opacity-30" viewBox="0 0 1000 1000" preserveAspectRatio="none">
@@ -204,8 +204,10 @@ export default function Hero() {
             <div className="mt-16 flex justify-center lg:justify-start">
               <StatusLog />
             </div>
-          </div>          {/* Right Side: 3D Isometric Holographic Command Center */}
-          <div className="relative flex-1 h-[650px] w-full hidden lg:flex items-center justify-center" style={{ perspective: '2000px' }}>
+          </div>          
+
+          {/* Right Side: 3D Isometric Holographic Command Center */}
+          <div className="relative flex-1 h-[600px] w-full hidden lg:flex items-center justify-center" style={{ perspective: '2000px' }}>
             
             {/* The Main Digital Command Center */}
             <HolographicCard 

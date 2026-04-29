@@ -241,7 +241,18 @@ export default function App() {
       <Layout>
         <AnimatePresence mode="wait">
           <Routes>
-            <Route path="/" element={<PageTransition><Hero /></PageTransition>} />
+            <Route path="/" element={
+              <PageTransition>
+                <main>
+                  <Hero />
+                  <About />
+                  <CoreSkills />
+                  <Projects />
+                  <Contact />
+                </main>
+              </PageTransition>
+            } />
+            {/* Keeping routes available for potential deep pages */}
             <Route path="/about" element={<PageTransition><><About /><CoreSkills /></></PageTransition>} />
             <Route path="/skills" element={<PageTransition><CoreSkills /></PageTransition>} />
             <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />

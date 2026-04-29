@@ -6,11 +6,11 @@ import { Button, buttonVariants } from "@/components/ui/button.jsx";
 import { cn } from "@/lib/utils.js";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Skills", href: "/skills" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -50,8 +50,26 @@ export default function Navbar() {
                   to={link.href}
                   className={({ isActive }) => cn(
                     "relative text-sm font-medium transition-colors cursor-pointer group flex flex-col items-center",
-                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                    isActive && !link.href.includes('#') ? "text-primary" : "text-muted-foreground hover:text-primary"
                   )}
+                  onClick={(e) => {
+                    if (link.href.startsWith('/#')) {
+                      e.preventDefault();
+                      const id = link.href.split('#')[1];
+                      const element = document.getElementById(id);
+                      if (element) {
+                        const offset = 80;
+                        const bodyRect = document.body.getBoundingClientRect().top;
+                        const elementRect = element.getBoundingClientRect().top;
+                        const elementPosition = elementRect - bodyRect;
+                        const offsetPosition = elementPosition - offset;
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }
+                  }}
                 >
                   <motion.span
                     initial={{ opacity: 0, y: -10 }}
