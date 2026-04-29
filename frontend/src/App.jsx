@@ -128,81 +128,107 @@ const Layout = ({ children }) => {
 }
 
 const Footer = () => (
-  <footer className="relative py-20 border-t border-white/5 bg-black/40 overflow-hidden">
+  <footer className="relative py-24 border-t border-white/5 bg-[#02040a] overflow-hidden">
     {/* Decorative Background Elements */}
     <div className="absolute inset-0 pointer-events-none">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#8b5cf610_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#8b5cf608_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
     </div>
 
     <div className="container mx-auto px-4 relative z-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         {/* Brand Column */}
-        <div className="flex flex-col items-center md:items-start gap-4">
+        <div className="md:col-span-2 flex flex-col items-center md:items-start gap-6">
           <motion.div 
-            whileHover={{ scale: 1.05 }}
-            className="flex flex-col"
+            whileHover={{ scale: 1.02 }}
+            className="flex flex-col group cursor-default"
           >
-            <span className="text-2xl font-black tracking-tighter text-gradient leading-none">
-              UZMA.S
-            </span>
-            <span className="text-[10px] font-mono text-primary tracking-[0.3em] uppercase mt-1">
-              Architecting Intelligence
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-3xl font-black tracking-tighter text-gradient leading-none">
+                UZMA.S
+              </span>
+            </div>
+            <span className="text-[9px] font-mono text-primary/40 tracking-[0.4em] uppercase mt-2 group-hover:text-primary transition-colors">
+              Core Architecture v4.0.2
             </span>
           </motion.div>
-          <p className="text-sm text-muted-foreground/60 max-w-xs text-center md:text-left leading-relaxed">
-            Crafting the next generation of digital experiences through the intersection of Java, React, and Artificial Intelligence.
+          <p className="text-sm text-muted-foreground/50 max-w-sm text-center md:text-left leading-relaxed font-light">
+            An intersection of logic and creativity. Specializing in high-performance Java backends and immersive React frontends powered by neural intelligence.
           </p>
+          <div className="flex items-center gap-4">
+            <div className="flex -space-x-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#02040a] bg-primary/10 flex items-center justify-center text-[10px] text-primary font-bold">
+                  {String.fromCharCode(64 + i)}
+                </div>
+              ))}
+            </div>
+            <span className="text-[10px] font-mono text-muted-foreground/30 uppercase tracking-widest">Active_Contributors</span>
+          </div>
         </div>
         
-        {/* Navigation Column */}
-        <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
-            <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">Home</Link>
-            <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">About</Link>
-            <Link to="/projects" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">Projects</Link>
-            <Link to="/contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">Contact</Link>
-          </div>
-          
-          <div className="flex items-center gap-3">
+        {/* Quick Links */}
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <h4 className="text-[10px] font-mono text-primary uppercase tracking-[0.3em] mb-2 px-2 py-1 border border-primary/20 rounded bg-primary/5">Navigation</h4>
+          <nav className="flex flex-col items-center md:items-start gap-3">
             {[
-              { icon: <motion.div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase tracking-wider font-bold hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer"><span className="text-primary text-xs">LinkedIn</span></motion.div> },
-              { icon: <motion.div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase tracking-wider font-bold hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer"><span className="text-primary text-xs">GitHub</span></motion.div> }
-            ].map((social, i) => (
-              <motion.div key={i} whileHover={{ y: -2 }}>
-                {social.icon}
-              </motion.div>
+              { label: 'Deployment', path: '/' },
+              { label: 'Intelligence', path: '/about' },
+              { label: 'Repositories', path: '/projects' },
+              { label: 'Uplink', path: '/contact' }
+            ].map((link) => (
+              <Link 
+                key={link.path} 
+                to={link.path} 
+                className="text-xs text-muted-foreground/60 hover:text-primary transition-all hover:translate-x-1 flex items-center gap-2"
+              >
+                <div className="w-1 h-1 rounded-full bg-primary/20" />
+                {link.label}
+              </Link>
             ))}
-          </div>
+          </nav>
         </div>
 
-        {/* Info Column */}
-        <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
-          <div className="text-[10px] font-mono text-muted-foreground/40 uppercase tracking-[0.2em] mb-2">System Status</div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
-            <span className="text-xs font-mono text-green-500/70">ALL_SYSTEMS_OPERATIONAL</span>
+        {/* Connect */}
+        <div className="flex flex-col items-center md:items-end gap-4">
+          <h4 className="text-[10px] font-mono text-primary uppercase tracking-[0.3em] mb-2 px-2 py-1 border border-primary/20 rounded bg-primary/5">Social_Uplink</h4>
+          <div className="grid grid-cols-2 gap-3 w-full md:w-auto">
+            <a href="#" className="flex items-center justify-center gap-2 px-4 py-2 rounded border border-white/5 bg-white/5 text-[10px] uppercase font-mono text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all">
+              LinkedIn
+            </a>
+            <a href="#" className="flex items-center justify-center gap-2 px-4 py-2 rounded border border-white/5 bg-white/5 text-[10px] uppercase font-mono text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all">
+              GitHub
+            </a>
           </div>
-          <p className="text-[11px] text-muted-foreground/60 mt-4">
-            © {new Date().getFullYear()} • Uzma Sulthana.S
-          </p>
+          <div className="mt-4 flex flex-col items-center md:items-end gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[10px] font-mono text-green-500/50 uppercase tracking-tighter">Server_Status: 100%_Uptime</span>
+            </div>
+            <div className="text-[10px] font-mono text-muted-foreground/20 uppercase">Last_Sync: {new Date().toLocaleTimeString()}</div>
+          </div>
         </div>
       </div>
       
-      <Separator className="my-12 bg-white/5" />
-      
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.25em]">
-          Designed & Developed in the Webscape v4.0
-        </p>
-        <div className="flex items-center gap-4">
-          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">React</span>
-          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">•</span>
-          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">Tailwind</span>
-          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">•</span>
-          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">Framer Motion</span>
+      <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex items-center gap-6 overflow-hidden">
+          <motion.div 
+            animate={{ x: [0, -100] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="flex gap-8 whitespace-nowrap"
+          >
+            {[...Array(3)].map((_, i) => (
+              <span key={i} className="text-[8px] font-mono text-muted-foreground/20 uppercase tracking-[0.5em]">
+                System_Encrypted • Secure_Link • Java_Run_Time • Neural_Engine_v4 • React_Fiber_Enabled • 
+              </span>
+            ))}
+          </motion.div>
         </div>
+        <p className="text-[9px] font-mono text-muted-foreground/30 uppercase tracking-widest whitespace-nowrap">
+          © {new Date().getFullYear()} UZMA_S // ALL_RIGHTS_RESERVED
+        </p>
       </div>
     </div>
   </footer>
