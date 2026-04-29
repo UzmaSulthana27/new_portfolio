@@ -38,13 +38,6 @@ export default function About() {
   return (
     <section id="about" className="py-24 relative overflow-hidden bg-[#02040a]">
       {/* Background HUD elements */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03] select-none font-mono text-[8px] leading-none overflow-hidden flex flex-wrap gap-4 p-4">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div key={i} className="whitespace-pre">
-            {`SYSTEM_BOOT_LOG_${i}\nKERNEL_STABLE\nDATA_SYNC_OK\nUZMA_CORE_INIT`}
-          </div>
-        ))}
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center mb-20">

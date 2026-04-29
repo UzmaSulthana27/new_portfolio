@@ -1,34 +1,20 @@
-# 🌌 Uzma Sulthana | Full-Stack Architect Portfolio
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-A high-performance, immersive developer portfolio featuring a **Holographic UI** aesthetic. Built for the modern web with a focus on motion design, technical storytelling, and "architectural honesty."
+# Run and deploy your AI Studio app
 
-![Portfolio Preview](https://uzma-sulthana27.vercel.app/)
+This contains everything you need to run your app locally.
 
-## 🛠️ The Tech Stack
+View your app in AI Studio: https://ai.studio/apps/6d59bc19-babd-458f-b322-4846a0685c58
 
-- **Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Styling:** [Tailwind CSS 4.0](https://tailwindcss.com/) (Utility-first atomic CSS)
-- **Motion:** [Framer Motion](https://www.framer.com/motion/) (Physics-based animations & layout transitions)
-- **UI Components:** [Shadcn UI](https://ui.shadcn.com/) & [Material UI](https://mui.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Routing:** [React Router 7](https://reactrouter.com/) (Smooth-scroll integration)
+## Run Locally
 
-## ✨ Core Features
+**Prerequisites:**  Node.js
 
-### 1. Holographic Command Center (Hero)
-Built with a custom `HolographicCard` component that uses CSS glassmorphism, isometric transforms, and SVG energy lines to create a 3D digital workspace feel.
 
-### 2. Interactive Skill Tree
-A non-linear branch-based visualization of technical evolution. Features a "Blueprint Mode" that toggles the UI into a low-latency schematic view, showcasing a different perspective of the system architecture.
-
-### 3. Neural-Link Navigation
-Optimized single-page scrolling architecture. The navigation system uses smooth-scroll physics to transition between "Deployment" (Home), "Intelligence" (About), and "Repositories" (Projects).
-
-### 4. Adaptive Grid Engine
-A custom-built `InteractiveGrid` background that responds to mouse movement using low-overhead Framer Motion `MotionValues`, preventing CPU spikes while maintaining an atmospheric depth.
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/UzmaSulthana27/new_portfolio.git
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

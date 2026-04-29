@@ -67,44 +67,6 @@ const ScrambleText = ({ text, delay = 0, duration = 1 }) => {
   return <span>{displayText || text.replace(/./g, "_")}</span>;
 };
 
-const StatusLog = () => {
-  const [logs, setLogs] = useState([]);
-  const statuses = [
-    "INITIALIZING SYSTEM...",
-    "AI_CORE: ONLINE",
-    "LOADING JAVA_ENV...",
-    "REACT_FRAMEWORK: READY",
-    "CONNECTING TO VOID...",
-    "UZMA_PROFILE: LOADED",
-    "NEURAL_LINK: ESTABLISHED"
-  ];
-
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setLogs(prev => [...prev.slice(-4), statuses[index]]);
-      index = (index + 1) % statuses.length;
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="hidden lg:flex flex-col gap-2 font-mono text-[10px] text-primary/60 border-l border-primary/20 pl-4 py-2 opacity-0 lg:opacity-100 transition-opacity">
-      {logs.map((log, i) => (
-        <motion.div
-          key={`${log}-${i}`}
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1 - (logs.length - 1 - i) * 0.2, x: 0 }}
-          className="flex items-center gap-2"
-        >
-          <span className="w-1 h-1 bg-primary pulse" />
-          {log}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#02040a]">
@@ -201,13 +163,10 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            <div className="mt-16 flex justify-center lg:justify-start">
-              <StatusLog />
-            </div>
           </div>          
 
           {/* Right Side: 3D Isometric Holographic Command Center */}
-          <div className="relative flex-1 h-[600px] w-full hidden lg:flex items-center justify-center" style={{ perspective: '2000px' }}>
+          <div className="relative flex-1 h-[600px] w-full hidden lg:flex items-center justify-center -mt-20" style={{ perspective: '2000px' }}>
             
             {/* The Main Digital Command Center */}
             <HolographicCard 
