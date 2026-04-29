@@ -204,104 +204,99 @@ export default function Hero() {
             <div className="mt-16 flex justify-center lg:justify-start">
               <StatusLog />
             </div>
-          </div>
-
-          {/* Right Side: 3D Isometric Holographic Command Center */}
+          </div>          {/* Right Side: 3D Isometric Holographic Command Center */}
           <div className="relative flex-1 h-[650px] w-full hidden lg:flex items-center justify-center" style={{ perspective: '2000px' }}>
             
             {/* The Main Digital Command Center */}
             <HolographicCard 
-              className="w-full max-w-lg aspect-[4/5] z-20" 
+              className="w-full max-w-xl aspect-[16/10] z-20" 
               delay={0.2} 
               title="SYSTEM_COMMAND_CENTER_v4.0"
             >
-              <div className="flex flex-col h-full gap-6">
-                {/* Header: User Profile Context */}
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
-                  <div className="w-20 h-20 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center relative overflow-hidden group">
-                    <User className="w-10 h-10 text-primary" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
-                    <motion.div 
-                      animate={{ top: ['-100%', '100%'] }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                      className="absolute h-[2px] w-full bg-primary shadow-[0_0_10px_var(--primary)] z-10"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-mono text-lg text-white/90 leading-tight">Uzma Sulthana.S</h3>
-                    <p className="text-xs font-mono text-primary/60 mb-2">FULLSTACK_ARCHITECT</p>
-                    <div className="flex gap-2">
-                       <div className="px-2 py-0.5 rounded bg-green-500/10 border border-green-500/20 text-[8px] font-mono text-green-500 uppercase">Status: Active</div>
-                       <div className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20 text-[8px] font-mono text-primary uppercase">Exp: 2.5yrs</div>
+              <div className="flex flex-col h-full gap-8 p-4">
+                {/* Unified Information Grid */}
+                <div className="grid grid-cols-12 gap-6 h-full">
+                  {/* Left Section: User Bio & Status */}
+                  <div className="col-span-5 flex flex-col gap-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center relative overflow-hidden group">
+                        <User className="w-8 h-8 text-primary" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                      </div>
+                      <div>
+                        <h3 className="font-mono text-xl text-white font-bold leading-tight">Uzma Sulthana.S</h3>
+                        <p className="text-[10px] font-mono text-primary/60 uppercase tracking-widest">Fullstack_Architect</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Grid Content: Geo + Code */}
-                <div className="grid grid-cols-2 gap-4 flex-1">
-                  {/* Geo-Data Sub-window */}
-                  <div className="flex flex-col gap-3 p-4 rounded-lg bg-black/40 border border-white/5 relative overflow-hidden group/geo">
-                    <div className="flex items-center gap-2 mb-1">
-                      <MapPin className="w-3 h-3 text-accent" />
-                      <span className="font-mono text-[10px] text-white/60 tracking-wider">GEOLOCATION</span>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center text-[10px] font-mono text-white/40">
+                        <span>CPU_LOAD</span>
+                        <span className="text-primary">42%</span>
+                      </div>
+                      <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                        <motion.div animate={{ width: "42%" }} className="h-full bg-primary/40" />
+                      </div>
+                      
+                      <div className="flex justify-between items-center text-[10px] font-mono text-white/40">
+                        <span>NEURAL_SYNK</span>
+                        <span className="text-accent">98%</span>
+                      </div>
+                      <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                        <motion.div animate={{ width: "98%" }} className="h-full bg-accent/40" />
+                      </div>
                     </div>
-                    <div className="text-xs font-mono text-white/80">BANGALORE, IN</div>
-                    <div className="flex-1 rounded border border-white/5 relative overflow-hidden opacity-40 grayscale group-hover/geo:grayscale-0 group-hover/geo:opacity-70 transition-all">
-                       <svg className="absolute inset-0 w-full h-full">
-                         <path d="M0,40 Q80,10 160,70 T240,30" stroke="var(--primary)" strokeWidth="0.5" fill="none" opacity="0.4" />
-                         <path d="M40,0 Q10,80 70,160 T30,240" stroke="var(--primary)" strokeWidth="0.5" fill="none" opacity="0.4" />
-                         <circle cx="80" cy="100" r="3" fill="var(--accent)" className="animate-pulse" />
-                       </svg>
-                    </div>
-                    <div className="mt-auto flex justify-between text-[8px] font-mono text-white/30">
-                      <span>LAT: 12.9716° N</span>
-                      <span>LNG: 77.5946° E</span>
+
+                    <div className="flex flex-col gap-2 mt-auto">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                        <span className="text-[9px] font-mono text-green-500/80 uppercase">System_Stable</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-3 h-3 text-accent" />
+                        <span className="text-[9px] font-mono text-white/50 lowercase">bangalore.in</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Core Logic Sub-window */}
-                  <div className="flex flex-col gap-3 p-4 rounded-lg bg-black/40 border border-white/5 group/code">
-                    <div className="flex items-center gap-2 mb-1">
-                      <TerminalIcon className="w-3 h-3 text-primary" />
-                      <span className="font-mono text-[10px] text-white/60 tracking-wider">CORE_LOGIC</span>
+                  {/* Right Section: Code & Logic Display */}
+                  <div className="col-span-7 bg-black/40 rounded-xl border border-white/5 p-6 relative overflow-hidden group">
+                    <div className="flex items-center gap-2 mb-4">
+                      <TerminalIcon className="w-4 h-4 text-primary" />
+                      <span className="font-mono text-xs text-white/40">CORE_ARCHITECTURE</span>
                     </div>
-                    <div className="flex-1 font-mono text-[9px] text-primary/80 leading-relaxed overflow-hidden">
+                    
+                    <div className="font-mono text-[11px] text-primary/90 leading-relaxed whitespace-pre">
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 1 }}
                       >
-                        {`Uzma.init({
-  stack: ["Java", "React"],
-  ai: true,
-  drive: "INNOVATION"
-});
+{`@Component
+public class Portfolio {
+  
+  @Autowired
+  private Intelligence ai;
 
-Loop: {
-  Think.Deep();
-  Build.Fast();
-  Scale.Infinite();
+  public void deploy() {
+    Stack s = Stack.builder()
+      .backend("Java/Spring")
+      .frontend("React/Tailwind")
+      .logic("AI_INTEGRATED")
+      .build();
+      
+    ai.optimize(s);
+    System.out.println("LAUNCHED");
+  }
 }`}
                       </motion.div>
                     </div>
-                    <div className="mt-auto h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                      <motion.div 
-                        animate={{ x: ["-100%", "100%"] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                        className="h-full w-1/3 bg-primary/40"
-                      />
+
+                    <div className="absolute bottom-4 right-4 flex items-center gap-4">
+                      <Globe className="w-4 h-4 text-white/10 group-hover:text-primary transition-colors" />
+                      <Cpu className="w-4 h-4 text-white/10 group-hover:text-accent transition-colors" />
                     </div>
                   </div>
-                </div>
-
-                {/* Footer Bar: Tech Badges */}
-                <div className="flex items-center justify-between px-4 py-3 bg-primary/5 rounded-lg border border-primary/10">
-                  <div className="flex gap-4">
-                    <Database className="w-4 h-4 text-primary/60 hover:text-primary transition-colors cursor-help" />
-                    <ChipIcon className="w-4 h-4 text-primary/60 hover:text-primary transition-colors cursor-help" />
-                    <Globe className="w-4 h-4 text-primary/60 hover:text-primary transition-colors cursor-help" />
-                  </div>
-                  <div className="text-[10px] font-mono text-primary/60">SYSTEM_RESOURCES: STABLE</div>
                 </div>
               </div>
             </HolographicCard>

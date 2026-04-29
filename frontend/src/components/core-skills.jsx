@@ -237,23 +237,24 @@ export default function CoreSkills() {
         {/* Dynamic Background */}
         <div className={`absolute inset-0 transition-opacity duration-1000 ${blueprintMode ? 'opacity-40' : 'opacity-20'}`}>
           {blueprintMode ? (
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:20px_20px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_0.5px,transparent_0.5px),linear-gradient(to_bottom,#1e293b_0.5px,transparent_0.5px)] bg-[size:40px_40px]" />
           ) : (
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#8b5cf615_0%,transparent_70%)]" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#8b5cf610_0%,transparent_70%)]" />
           )}
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16 relative">
+          <div className="flex flex-col items-center text-center mb-16 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="w-full flex flex-col items-center"
             >
-              <Typography variant="h3" sx={{ fontWeight: 800, mb: 2 }} className={`text-4xl md:text-6xl tracking-tighter transition-all ${blueprintMode ? 'font-mono text-white/80' : ''}`}>
+              <Typography variant="h3" sx={{ fontWeight: 800, mb: 2 }} className={`text-4xl md:text-6xl tracking-tighter transition-all text-center ${blueprintMode ? 'font-mono text-white/80' : ''}`}>
                 {blueprintMode ? "SPEC_ARCH_v2.0" : "Holographic Skill Tree"}
               </Typography>
-              <Typography variant="body1" color="text.secondary" className={`max-w-2xl mx-auto italic transition-all block text-center ${blueprintMode ? 'font-mono text-[10px] uppercase tracking-widest' : ''}`}>
+              <Typography variant="body1" color="text.secondary" className={`max-w-2xl italic transition-all block text-center leading-relaxed ${blueprintMode ? 'font-mono text-[10px] uppercase tracking-widest' : ''}`}>
                 {blueprintMode ? "SYSTEM_ARCHITECTURE_SCHEMATIC_VIEW_MODE_ACTIVE" : "A non-linear map of technical evolution, branching from core logic to complex architectures."}
               </Typography>
             </motion.div>
