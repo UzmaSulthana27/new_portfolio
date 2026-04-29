@@ -128,49 +128,81 @@ const Layout = ({ children }) => {
 }
 
 const Footer = () => (
-  <footer className="py-12 border-t bg-muted/20">
-    <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-xl font-bold tracking-tighter text-gradient">
-            UZMA.S
-          </span>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Uzma Sulthana.S. All rights reserved.
+  <footer className="relative py-20 border-t border-white/5 bg-black/40 overflow-hidden">
+    {/* Decorative Background Elements */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#8b5cf610_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+        {/* Brand Column */}
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="flex flex-col"
+          >
+            <span className="text-2xl font-black tracking-tighter text-gradient leading-none">
+              UZMA.S
+            </span>
+            <span className="text-[10px] font-mono text-primary tracking-[0.3em] uppercase mt-1">
+              Architecting Intelligence
+            </span>
+          </motion.div>
+          <p className="text-sm text-muted-foreground/60 max-w-xs text-center md:text-left leading-relaxed">
+            Crafting the next generation of digital experiences through the intersection of Java, React, and Artificial Intelligence.
           </p>
         </div>
         
-        <div className="flex items-center gap-8">
-          <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
-          <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
-          <Link to="/projects" className="text-sm text-muted-foreground hover:text-primary transition-colors">Projects</Link>
-          <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
+        {/* Navigation Column */}
+        <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
+            <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">Home</Link>
+            <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">About</Link>
+            <Link to="/projects" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">Projects</Link>
+            <Link to="/contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-all hover:tracking-widest uppercase text-[11px] tracking-wider">Contact</Link>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            {[
+              { icon: <motion.div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase tracking-wider font-bold hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer"><span className="text-primary text-xs">LinkedIn</span></motion.div> },
+              { icon: <motion.div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/5 text-[10px] uppercase tracking-wider font-bold hover:bg-primary/10 hover:border-primary/30 transition-all cursor-pointer"><span className="text-primary text-xs">GitHub</span></motion.div> }
+            ].map((social, i) => (
+              <motion.div key={i} whileHover={{ y: -2 }}>
+                {social.icon}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="flex items-center gap-4">
-          <motion.div 
-            whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-          >
-            <span className="sr-only">LinkedIn</span>
-            in
-          </motion.div>
-          <motion.div 
-            whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-          >
-            <span className="sr-only">GitHub</span>
-            gh
-          </motion.div>
+        {/* Info Column */}
+        <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
+          <div className="text-[10px] font-mono text-muted-foreground/40 uppercase tracking-[0.2em] mb-2">System Status</div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
+            <span className="text-xs font-mono text-green-500/70">ALL_SYSTEMS_OPERATIONAL</span>
+          </div>
+          <p className="text-[11px] text-muted-foreground/60 mt-4">
+            © {new Date().getFullYear()} • Uzma Sulthana.S
+          </p>
         </div>
       </div>
       
-      <Separator className="my-8 opacity-50" />
+      <Separator className="my-12 bg-white/5" />
       
-      <div className="text-center">
-        <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em]">
-          Built with React • Tailwind • Framer Motion • Shadcn UI
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.25em]">
+          Designed & Developed in the Webscape v4.0
         </p>
+        <div className="flex items-center gap-4">
+          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">React</span>
+          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">•</span>
+          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">Tailwind</span>
+          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">•</span>
+          <span className="text-[9px] text-muted-foreground/40 uppercase tracking-[0.2em]">Framer Motion</span>
+        </div>
       </div>
     </div>
   </footer>

@@ -253,7 +253,7 @@ export default function CoreSkills() {
               <Typography variant="h3" sx={{ fontWeight: 800, mb: 2 }} className={`text-4xl md:text-6xl tracking-tighter transition-all ${blueprintMode ? 'font-mono text-white/80' : ''}`}>
                 {blueprintMode ? "SPEC_ARCH_v2.0" : "Holographic Skill Tree"}
               </Typography>
-              <Typography variant="body1" color="text.secondary" className={`max-w-2xl mx-auto italic transition-all ${blueprintMode ? 'font-mono text-[10px] uppercase tracking-widest' : ''}`}>
+              <Typography variant="body1" color="text.secondary" className={`max-w-2xl mx-auto italic transition-all block text-center ${blueprintMode ? 'font-mono text-[10px] uppercase tracking-widest' : ''}`}>
                 {blueprintMode ? "SYSTEM_ARCHITECTURE_SCHEMATIC_VIEW_MODE_ACTIVE" : "A non-linear map of technical evolution, branching from core logic to complex architectures."}
               </Typography>
             </motion.div>

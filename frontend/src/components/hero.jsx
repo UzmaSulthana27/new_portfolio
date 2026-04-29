@@ -206,93 +206,121 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Side: 3D Isometric Holographic Workspace */}
-          <div className="relative flex-1 h-[600px] w-full hidden lg:flex items-center justify-center" style={{ perspective: '2000px' }}>
+          {/* Right Side: 3D Isometric Holographic Command Center */}
+          <div className="relative flex-1 h-[650px] w-full hidden lg:flex items-center justify-center" style={{ perspective: '2000px' }}>
             
-            {/* The Main Laptop/Coder Window */}
+            {/* The Main Digital Command Center */}
             <HolographicCard 
-              className="w-80 h-96 z-20" 
+              className="w-full max-w-lg aspect-[4/5] z-20" 
               delay={0.2} 
-              title="CODER_ENV"
+              title="SYSTEM_COMMAND_CENTER_v4.0"
             >
-              <div className="flex flex-col items-center justify-center h-full gap-4">
-                <div className="w-24 h-24 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center relative overflow-hidden group">
-                  <User className="w-12 h-12 text-primary" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
-                  {/* Digital scan effect */}
-                  <motion.div 
-                    animate={{ top: ['-100%', '100%'] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                    className="absolute h-[2px] w-full bg-primary shadow-[0_0_10px_var(--primary)] z-10"
-                  />
+              <div className="flex flex-col h-full gap-6">
+                {/* Header: User Profile Context */}
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5">
+                  <div className="w-20 h-20 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center relative overflow-hidden group">
+                    <User className="w-10 h-10 text-primary" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                    <motion.div 
+                      animate={{ top: ['-100%', '100%'] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                      className="absolute h-[2px] w-full bg-primary shadow-[0_0_10px_var(--primary)] z-10"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-mono text-lg text-white/90 leading-tight">Uzma Sulthana.S</h3>
+                    <p className="text-xs font-mono text-primary/60 mb-2">FULLSTACK_ARCHITECT</p>
+                    <div className="flex gap-2">
+                       <div className="px-2 py-0.5 rounded bg-green-500/10 border border-green-500/20 text-[8px] font-mono text-green-500 uppercase">Status: Active</div>
+                       <div className="px-2 py-0.5 rounded bg-primary/10 border border-primary/20 text-[8px] font-mono text-primary uppercase">Exp: 2.5yrs</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <h3 className="font-mono text-sm text-white/90">Uzma.S</h3>
-                  <p className="text-[10px] font-mono text-primary/60">Full Stack Engineer</p>
-                </div>
-                <div className="flex gap-2 mt-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.6)]" />
-                  <span className="text-[8px] font-mono text-green-500/80 uppercase">Active_Session</span>
-                </div>
-              </div>
-            </HolographicCard>
 
-            {/* Floating Map Window */}
-            <HolographicCard 
-              className="absolute -top-10 -right-10 w-64 h-56 z-30" 
-              delay={0.4} 
-              title="GEOLOCATION"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin className="w-4 h-4 text-accent" />
-                  <span className="font-mono text-xs text-white/80">Bangalore, India</span>
-                </div>
-                <div className="flex-1 bg-black/40 rounded border border-white/5 overflow-hidden relative grayscale opacity-60">
-                   {/* Abstract Map Lines */}
-                   <svg className="absolute inset-0 w-full h-full">
-                     <path d="M0,50 Q100,20 200,80 T300,40" stroke="var(--primary)" strokeWidth="0.5" fill="none" opacity="0.3" />
-                     <path d="M50,0 Q20,100 80,200 T40,300" stroke="var(--primary)" strokeWidth="0.5" fill="none" opacity="0.3" />
-                     <circle cx="120" cy="180" r="4" fill="var(--accent)" />
-                   </svg>
-                   <div className="absolute bottom-2 right-2 text-[8px] font-mono text-white/20 uppercase tracking-widest">Map_Static_01</div>
-                </div>
-              </div>
-            </HolographicCard>
+                {/* Grid Content: Geo + Code */}
+                <div className="grid grid-cols-2 gap-4 flex-1">
+                  {/* Geo-Data Sub-window */}
+                  <div className="flex flex-col gap-3 p-4 rounded-lg bg-black/40 border border-white/5 relative overflow-hidden group/geo">
+                    <div className="flex items-center gap-2 mb-1">
+                      <MapPin className="w-3 h-3 text-accent" />
+                      <span className="font-mono text-[10px] text-white/60 tracking-wider">GEOLOCATION</span>
+                    </div>
+                    <div className="text-xs font-mono text-white/80">BANGALORE, IN</div>
+                    <div className="flex-1 rounded border border-white/5 relative overflow-hidden opacity-40 grayscale group-hover/geo:grayscale-0 group-hover/geo:opacity-70 transition-all">
+                       <svg className="absolute inset-0 w-full h-full">
+                         <path d="M0,40 Q80,10 160,70 T240,30" stroke="var(--primary)" strokeWidth="0.5" fill="none" opacity="0.4" />
+                         <path d="M40,0 Q10,80 70,160 T30,240" stroke="var(--primary)" strokeWidth="0.5" fill="none" opacity="0.4" />
+                         <circle cx="80" cy="100" r="3" fill="var(--accent)" className="animate-pulse" />
+                       </svg>
+                    </div>
+                    <div className="mt-auto flex justify-between text-[8px] font-mono text-white/30">
+                      <span>LAT: 12.9716° N</span>
+                      <span>LNG: 77.5946° E</span>
+                    </div>
+                  </div>
 
-            {/* Floating Code Snippet */}
-            <HolographicCard 
-              className="absolute -bottom-10 -left-10 w-72 h-48 z-10" 
-              delay={0.6} 
-              title="MAIN.JAVA"
-            >
-              <pre className="font-mono text-[10px] text-primary leading-tight overflow-hidden">
-                {`public class Uzma {
-  String status = "BUILDING";
-  
-  void setup() {
-    AI.init();
-    Stack.deploy();
-  }
+                  {/* Core Logic Sub-window */}
+                  <div className="flex flex-col gap-3 p-4 rounded-lg bg-black/40 border border-white/5 group/code">
+                    <div className="flex items-center gap-2 mb-1">
+                      <TerminalIcon className="w-3 h-3 text-primary" />
+                      <span className="font-mono text-[10px] text-white/60 tracking-wider">CORE_LOGIC</span>
+                    </div>
+                    <div className="flex-1 font-mono text-[9px] text-primary/80 leading-relaxed overflow-hidden">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        {`Uzma.init({
+  stack: ["Java", "React"],
+  ai: true,
+  drive: "INNOVATION"
+});
+
+Loop: {
+  Think.Deep();
+  Build.Fast();
+  Scale.Infinite();
 }`}
-              </pre>
+                      </motion.div>
+                    </div>
+                    <div className="mt-auto h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                      <motion.div 
+                        animate={{ x: ["-100%", "100%"] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                        className="h-full w-1/3 bg-primary/40"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Bar: Tech Badges */}
+                <div className="flex items-center justify-between px-4 py-3 bg-primary/5 rounded-lg border border-primary/10">
+                  <div className="flex gap-4">
+                    <Database className="w-4 h-4 text-primary/60 hover:text-primary transition-colors cursor-help" />
+                    <ChipIcon className="w-4 h-4 text-primary/60 hover:text-primary transition-colors cursor-help" />
+                    <Globe className="w-4 h-4 text-primary/60 hover:text-primary transition-colors cursor-help" />
+                  </div>
+                  <div className="text-[10px] font-mono text-primary/60">SYSTEM_RESOURCES: STABLE</div>
+                </div>
+              </div>
             </HolographicCard>
 
-            {/* Micro Floating Tech Badges */}
+            {/* Floating Detail Accents */}
             <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-20 -left-20 p-2 bg-black/40 border border-white/10 rounded-lg backdrop-blur-xl z-40"
+              animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-12 -right-12 w-24 h-24 p-4 bg-black/60 border border-white/10 rounded-2xl backdrop-blur-2xl z-30 flex items-center justify-center"
             >
-              <Database className="w-6 h-6 text-primary" />
+              <Sparkles className="w-8 h-8 text-primary shadow-[0_0_20px_var(--primary)]" />
             </motion.div>
 
             <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-20 -right-16 p-2 bg-black/40 border border-white/10 rounded-lg backdrop-blur-xl z-40"
+              animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-12 -left-12 w-24 h-24 p-4 bg-black/60 border border-white/10 rounded-2xl backdrop-blur-2xl z-30 flex items-center justify-center"
             >
-              <ChipIcon className="w-6 h-6 text-accent" />
+              <Code2 className="w-8 h-8 text-accent shadow-[0_0_20px_var(--accent)]" />
             </motion.div>
           </div>
         </div>
