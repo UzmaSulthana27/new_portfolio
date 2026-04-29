@@ -2,7 +2,7 @@
 
 A high-performance, immersive developer portfolio featuring a **Holographic UI** aesthetic. Built for the modern web with a focus on motion design, technical storytelling, and "architectural honesty."
 
-![Portfolio Preview](https://via.placeholder.com/1200x630/02040a/8b5cf6?text=UZMA.S+PORTFOLIO+V4.0)
+![Portfolio Preview](https://uzma-sulthana27.vercel.app/)
 
 ## 🛠️ The Tech Stack
 
