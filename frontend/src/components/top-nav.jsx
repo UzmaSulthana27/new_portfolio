@@ -1,15 +1,16 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Button, buttonVariants } from "@/components/ui/button.jsx";
 import { cn } from "@/lib/utils.js";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Skills", href: "/skills" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -44,37 +45,28 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link, i) => (
-                <motion.a
+                <NavLink
                   key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  whileHover="hover"
-                  transition={{ 
-                    delay: i * 0.1,
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                  }}
-                  className="relative text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer group flex flex-col items-center"
+                  to={link.href}
+                  className={({ isActive }) => cn(
+                    "relative text-sm font-medium transition-colors cursor-pointer group flex flex-col items-center",
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  )}
                 >
                   <motion.span
-                    variants={{
-                      hover: { scale: 1.05 }
-                    }}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
                   >
                     {link.name}
                   </motion.span>
                   <motion.div
                     className="absolute -bottom-1 left-0 h-0.5 bg-primary rounded-full"
-                    variants={{
-                      initial: { width: 0 },
-                      hover: { width: "100%" }
-                    }}
-                    initial="initial"
+                    layoutId="activeNav"
+                    initial={{ width: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   />
-                </motion.a>
+                </NavLink>
               ))}
             </div>
           </div>
@@ -120,15 +112,17 @@ export default function Navbar() {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
-              <motion.a
+              <NavLink
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 onClick={() => setIsOpen(false)}
-                whileHover={{ x: 10, color: "var(--primary)" }}
-                className="block px-3 py-2 rounded-md text-base font-medium text-muted-foreground transition-all"
+                className={({ isActive }) => cn(
+                  "block px-3 py-2 rounded-md text-base font-medium transition-all",
+                  isActive ? "text-primary bg-primary/5" : "text-muted-foreground hover:text-primary"
+                )}
               >
                 {link.name}
-              </motion.a>
+              </NavLink>
             ))}
             <div className="flex space-x-2 px-3 py-2">
               <a 

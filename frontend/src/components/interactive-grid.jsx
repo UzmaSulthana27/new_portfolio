@@ -77,31 +77,21 @@ export default function InteractiveGrid() {
     >
       {/* Dynamic Nebula / Atmosphere */}
       <motion.div 
-        className="absolute inset-[-10%] opacity-30"
+        className="absolute inset-[-10%] opacity-20"
         style={{
           x: nebulaX,
           y: nebulaY,
           background: `
-            radial-gradient(circle at 20% 30%, ${theme.palette.primary.main}33 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, ${theme.palette.accent?.main || '#06b6d4'}22 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, #000 0%, transparent 100%)
+            radial-gradient(circle at 20% 30%, ${theme.palette.primary.main}22 0%, transparent 60%),
+            radial-gradient(circle at 80% 70%, ${theme.palette.accent?.main || '#06b6d4'}11 0%, transparent 60%)
           `,
-          filter: "blur(80px)",
-        }}
-        animate={{
-          scale: [1, 1.1, 1],
-          rotate: [0, 5, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
+          filter: "blur(60px)",
         }}
       />
 
       {/* Floating Data Particles */}
       <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <Particle key={i} i={i} />
         ))}
       </div>
