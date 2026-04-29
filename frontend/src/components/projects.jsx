@@ -37,7 +37,9 @@ const projectData = [
     tech: ["MongoDB", "Express", "React", "Node.js", "MERN Stack"],
     category: "AI",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
-    color: "#00ED64"
+    color: "#00ED64",
+    github: "#",
+    demo: "#"
   },
   {
     id: 2,
@@ -48,7 +50,9 @@ const projectData = [
     tech: ["Java", "Spring Boot", "React", "MySQL", "JavaScript"],
     category: "AI",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
-    color: "#ED8B00"
+    color: "#ED8B00",
+    github: "#",
+    demo: "#"
   },
   {
     id: 3,
@@ -59,7 +63,9 @@ const projectData = [
     tech: ["React", "Node.js", "Socket.io", "MySQL", "Three.js", "Hugging Face"],
     category: "AI",
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=800&auto=format&fit=crop",
-    color: "#8b5cf6"
+    color: "#8b5cf6",
+    github: "https://github.com/UzmaSulthana27/BuddyBot",
+    demo: "#"
   },
   {
     id: 4,
@@ -70,7 +76,9 @@ const projectData = [
     tech: ["React.js", "JavaScript", "HTML5/CSS3", "State Management"],
     category: "Frontend",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
-    color: "#10b981"
+    color: "#10b981",
+    github: "https://github.com/UzmaSulthana27/ecommerce",
+    demo: "https://shopwave-e.vercel.app/"
   }
 ];
 
@@ -181,11 +189,22 @@ const ProjectModule = ({ project, index }) => {
           </div>
 
           <div className="mt-auto pt-6 flex gap-3 border-t border-white/5">
-            <Button variant="outline" size="sm" className="flex-1 rounded-lg border-white/10 glass bg-white/5 hover:bg-primary/20 hover:border-primary/50 text-[10px] uppercase font-mono group/btn">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex-1 rounded-lg border-white/10 glass bg-white/5 hover:bg-primary/20 hover:border-primary/50 text-[10px] uppercase font-mono group/btn"
+              onClick={() => project.github !== "#" && window.open(project.github, "_blank", "noopener,noreferrer")}
+              disabled={project.github === "#"}
+            >
               <Github className="w-3 h-3 mr-2 group-hover/btn:rotate-12 transition-transform" />
               Source_Code
             </Button>
-            <Button size="sm" className="flex-1 rounded-lg bg-primary hover:bg-primary/90 text-white shadow-lg text-[10px] uppercase font-mono group/btn">
+            <Button 
+              size="sm" 
+              className="flex-1 rounded-lg bg-primary hover:bg-primary/90 text-white shadow-lg text-[10px] uppercase font-mono group/btn"
+              onClick={() => project.demo !== "#" && window.open(project.demo, "_blank", "noopener,noreferrer")}
+              disabled={project.demo === "#"}
+            >
               <ExternalLink className="w-3 h-3 mr-2 group-hover/btn:scale-110 transition-transform" />
               Live_Deploy
             </Button>
