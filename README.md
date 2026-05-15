@@ -468,7 +468,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Your Name** - Full Stack Solutions Architect
+**Uzma Sulthana.S** - Full Stack Solutions Architect
 
 - 🌐 Portfolio: [your-portfolio.com](https://uzma-sulthana27.vercel.app/)
 - 📧 Email: uzmasulthana2725@gmail.com
