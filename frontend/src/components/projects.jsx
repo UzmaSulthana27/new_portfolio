@@ -38,12 +38,12 @@ const projectData = [
     category: "AI",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
     color: "#00ED64",
-    github: "#",
-    demo: "#"
+    github: "https://github.com/UzmaSulthana27/Architect-ai",
+    demo: "https://architect-ai-black.vercel.app/"
   },
   {
     id: 2,
-    title: "TALENT_SYNC.AI",
+    title: "ASTRA-AI",
     subtitle: "INTERVIEW_BOT_v1.5",
     description: "AI Interview Bot",
     longDescription: "Interactive interview platform featuring automated verbal feedback and coding challenges. Built with a robust Java backend and React frontend.",
@@ -51,8 +51,8 @@ const projectData = [
     category: "AI",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
     color: "#ED8B00",
-    github: "#",
-    demo: "#"
+    github: "https://github.com/UzmaSulthana27/Ai-Interview-Bot",
+    demo: "https://astra-ai00.vercel.app/"
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ const projectData = [
     image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=800&auto=format&fit=crop",
     color: "#8b5cf6",
     github: "https://github.com/UzmaSulthana27/BuddyBot",
-    demo: "#"
+    demo: ""
   },
   {
     id: 4,
